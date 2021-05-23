@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="metier.Adresse3" table="Adresse3">
+		<id name="id" column="adresse_id" > <generator class="increment" /> </id>
+		<property name="ligne1" column="ligne1_adr" /> 
+		<property name="ligne2" column="ligne2_adr" />
+		<property name="cp" column="cp_adr" /> 
+		<property name="ville" column="ville_adr" />
+		<property name="ligne3" column="ligne3_adr" />
+	</class>
+</hibernate-mapping>
+
+
+
+

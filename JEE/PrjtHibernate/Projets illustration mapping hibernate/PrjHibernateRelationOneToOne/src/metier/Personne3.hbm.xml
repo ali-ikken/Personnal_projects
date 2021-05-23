@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+      <class name="metier.Personne3" table="personne3">
+      	<id name="id" column="id"> <generator class="increment"/> </id>
+			<property name="nom" column="Nom" /> 
+			<property name="prenom" column="Prenom"/>
+			<property name="dateNais" column="DateNais"/>  
+			<many-to-one name="adresse" class="metier.Adresse3" column="adresse_id" cascade="all" unique="true" />
+</class>
+</hibernate-mapping>
+
+
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="metier.Compte" table="compte" >
+		<id name="id" column="id" type="int" > <generator class="increment" /> </id>
+		<property name="numero" column="numero" type="string" />
+		<property name="solde" column="solde" type="big_decimal" />
+		<union-subclass name="metier.CompteCourant" table="compte_courant">
+			<property name="decouvert" column="decouvert" type="int"/>
+		</union-subclass>
+		<union-subclass name="metier.CompteEpargne" table="compte_epargne">
+			<property name="taux" column="taux" type="big_decimal"/>
+		</union-subclass>		
+	</class>
+</hibernate-mapping>
+
+
+

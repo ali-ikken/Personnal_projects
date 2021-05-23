@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Metier.User" table="USER" >
+	<id name="email" column="email_id" > 
+	</id>
+		<property name="nomPrenom" column="nomPrenom"  />
+		<property name="motPasse" column="motPasse"  />
+		 <set name="news">
+		<key column="email_id"></key>
+		<one-to-many class="Metier.News" />
+		 </set>
+		 <set name="reactions">
+		<key column="email_id"></key>
+		<one-to-many class="Metier.Reaction" />
+		 </set>
+	</class>
+</hibernate-mapping>
+
+
+

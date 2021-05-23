@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="metier.Personne" table="Personne_table" discriminator-value="personne">
+		<id name="id" column="ID">
+		 <generator class="increment"></generator>
+		  </id>
+		  <discriminator column="Personne_Profession" type="string"></discriminator>
+		   <property name="nom"></property>
+		   <property name="prenom"></property>
+		   <property name="motPasse"></property>
+		   <set name="exemplaires"  table="personne_exemplaire">
+		    <key column="id"></key>
+		    <many-to-many  column="code" class="metier.Exemplaire"></many-to-many>
+		   </set>
+		   <subclass name="metier.Etudiant" discriminator-value="etuidiant">
+		    <property name="cne"></property>
+		   </subclass>
+	</class>
+</hibernate-mapping>
+
+
+

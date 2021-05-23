@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="metier.Compte" table="compte" discriminator-value="Compte" >
+		<id name="id" column="id" type="int" > <generator class="native" /> </id>
+		<discriminator column="DTYPE" type="string" />
+		<property name="numero" column="numero" type="string" />
+		<property name="solde" column="solde" type="big_decimal" />
+		<subclass name="metier.CompteCourant" discriminator-value="CompteCourant">
+				<join table="compte_courant" fetch="select" >
+				<key column="compte_courant_id" />
+				<property name="decouvert" column="decouvert" type="int"/> </join>
+		</subclass>
+		<subclass name="metier.CompteEpargne" discriminator-value="CompteEpargne">
+				<join table="compte_epargne">
+				<key column="compte_epargne_id" />
+				<property name="taux" column="taux" type="big_decimal"/> </join>
+		</subclass>		
+	</class>
+</hibernate-mapping>
+
+
+

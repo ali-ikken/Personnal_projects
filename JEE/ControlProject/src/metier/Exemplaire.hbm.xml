@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="metier.Exemplaire" table="Exemplaire" >
+	<id name="code" column="code">
+	<generator class="assigned"></generator>
+	</id>
+		<property name="disponible"  />
+		<many-to-one name="livre"  column="num"  />
+		<set name="personnes" inverse="true"  table="personne_exemplaire">
+		<key column="code"></key>
+		<many-to-many column="id" class="metier.Personne"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+

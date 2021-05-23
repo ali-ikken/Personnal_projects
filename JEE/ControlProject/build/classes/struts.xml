@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+	<package name="web"  namespace="/" extends="struts-default">
+       
+        <!-- Action de l'action de réference -->   
+        <default-action-ref name="login"/> 
+        
+        <action name="login">
+          <result>Login.jsp</result>
+        </action>
+        <action name="inscrire" class="web.ServiceAction" method="validerLogin">
+           <result name="success">Consultation.jsp</result>
+            <result name="input">Login.jsp</result>
+        </action>
+        <action name="insc" class="web.ServiceAction" method="validerInscription">
+          <result name="input">Inscription.jsp</result>
+          <result name="success">Login.jsp</result>
+        </action>
+        <action name="emp" class="web.ServiceAction" method="emprunter">
+         <result>Emprunt.jsp</result>
+        </action>
+        <action name="inscription">
+         <result>Inscription.jsp</result>
+        </action>
+        <action name="emprunter" class="web.ServiceAction" method="getCodes">
+         <result >Emprunt.jsp</result>
+        </action>
+        <action name="affiche" class="web.ServiceAction" method="getList">
+         <result>Consultation.jsp</result>
+        </action>
+ 	</package>   
+ </struts>   
+    

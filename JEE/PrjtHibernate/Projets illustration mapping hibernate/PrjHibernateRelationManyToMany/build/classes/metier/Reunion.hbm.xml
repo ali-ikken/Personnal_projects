@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+      <class name="metier.Reunion" table="reunion">
+      	<id name="idReunion" column="idReunion"> <generator class="increment"/> </id>
+			<property name="dateReunion" column="dateReunion" /> 
+			<property name="titre" column="titre"/>
+			<set name= "personnes" table="Pers_Reunions"  >          
+				<key column="Id_Reunion"/> 
+				<many-to-many column="Id_Personne"  class="metier.Personne"/>     
+</set> 
+			
+	  </class>
+</hibernate-mapping>
+
+
+
+

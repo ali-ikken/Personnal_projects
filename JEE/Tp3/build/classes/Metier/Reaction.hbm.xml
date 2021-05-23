@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Metier.Reaction" table="Reaction" >
+	<id name="num" column="num" type="int">
+	<generator class="increment"></generator>
+	</id>
+	
+		<property name="dateReaction" column="date_Reaction"  />
+		<property name="reaction" column="Reaction"  />
+		<many-to-one name="user"  column="email_id"  ></many-to-one>
+		<many-to-one name="news"  column="url_id" ></many-to-one>
+	</class>
+</hibernate-mapping>
+
+
+

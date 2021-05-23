@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Metier.News" table="News" >
+	<id name="url" column="url_id">
+	</id>
+		<property name="titre" column="TITRE"  />
+		<property name="dateNews" column="Date_News" />
+		<many-to-one name="createur"  column="email_id"  />
+		<set name="reactions"  >
+		 <key column="url_id"></key>
+		 <one-to-many class="Metier.Reaction" />
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+

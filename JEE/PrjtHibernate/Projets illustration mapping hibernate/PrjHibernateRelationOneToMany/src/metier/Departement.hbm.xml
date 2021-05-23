@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+      <class name="metier.Departement" table="Departement">
+			<id name="idDept" column=" idDept "> 
+           			<generator class="increment"/> </id>
+			<property name="intitule" column=" intitule" />
+			<set name="Personnes" >
+				<key column="IdDept"/>
+				<one-to-many class="metier.Personne"/>
+			</set>
+	  </class>
+</hibernate-mapping>
+
+
+
+

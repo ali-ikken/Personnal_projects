@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="metier.Compte" table="compte" >
+		<id name="id" column="id" type="int" > <generator class="native" /> </id>
+		<property name="numero" column="numero" type="string" />
+		<property name="solde" column="solde" type="big_decimal" />
+		<joined-subclass name="metier.CompteCourant" table="compte_courant">
+			<key column="id"/> 
+			<property name="decouvert"   column="decouvert" type="int"/>
+		</joined-subclass>
+		<joined-subclass name="metier.CompteEpargne" table="compte_epargne">
+			<key column="id"/>
+			<property name="taux" column="taux" type="big_decimal"/>
+		</joined-subclass>		
+	</class>
+</hibernate-mapping>
+
+
+

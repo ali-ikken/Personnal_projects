@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+	<package name="Web"  namespace="/" extends="struts-default">
+       
+        <!-- Action de l'action de réference -->   
+        <default-action-ref name="srv"/> 
+        
+        <action name="srv">
+          <result>login.jsp</result>
+        </action>
+        <action name="service" class="Web.ActionNews" method="valideInscription">
+           <result name="success">ajoutReaction.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+        <action name="inscrire" class="Web.ActionNews" method="inscrire">
+           <result name="success">login.jsp</result>
+           <result name="input">inscription.jsp</result>
+        </action>
+        <action name="inscrire1" class="Web.ActionNews"  method="def">
+        <result name="success">inscription.jsp</result>
+        </action>
+        <action name="validerReaction" class="Web.ActionNews" method="validerReaction">
+          <result name="success">ajoutReaction.jsp</result>
+           <result name="input">ajoutReaction.jsp</result>
+        </action>
+        <action name="ajoutNews">
+          <result >AjoutNew.jsp</result>
+         </action>
+         <action name="ajoutReaction">
+           <result>ajoutReaction.jsp</result>
+         </action>
+        <action name="afficheNews"  class="Web.ActionNews" method="getNews">
+           <result >AfficheNew.jsp</result>        
+        </action>
+        <action name="affichageReaction" class="Web.ActionNews" method="getReactions">
+         <result >AfficheReactions.jsp</result>
+        </action>
+        <action name="ajouternews" class="Web.ActionNews" method="ajouternews">
+         <result name="success">AjoutNew.jsp</result>
+         <result name="input">AjoutNew.jsp</result>
+        </action>
+ 	</package>   
+ </struts>   
+    
